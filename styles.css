@@ -4,7 +4,8 @@ body {
 font-family: Arial, sans-serif;
 margin: 0;
 padding: 0;
-background-color: #6B3BA2; /* Beautiful Purple Galaxy */
+ background: url('https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/cosmic-vacuum-cleaner-spiral-galaxy-m83-philipp-rietz.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 header, nav, section, footer {

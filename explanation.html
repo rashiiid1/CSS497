@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explanation - Serialize and Deserialize Binary Tree</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Explanation - Serialize and Deserialize Binary Tree</h1>
+    </header>
+
+    <main>
+        <h2>Problem Explanation</h2>
+        <p>Serializing and deserializing a binary tree is a common problem in computer science and plays a crucial role in data storage and transmission. It involves converting a binary tree into a string representation that can be easily stored or transmitted, and then reconstructing the original tree from the string.</p>
+        
+        <p>The problem statement requires designing an algorithm to serialize and deserialize a binary tree. The serialization process converts the tree into a string, while deserialization reconstructs the original tree from the string.</p>
+
+        <h2>Approach: Depth-First Search (DFS)</h2>
+        <p>In this explanation, we will discuss one possible approach to solve the problem using Depth-First Search (DFS) algorithm.</p>
+        
+        <h3>Serialization:</h3>
+        <p>During serialization, we will traverse the binary tree in a depth-first manner. We start with the root node and append its value to the serialization string. Then, we recursively serialize the left and right subtrees. To represent null nodes, we append the string "null". By following this approach, we can serialize the entire binary tree into a string.</p>
+        
+        <h3>Deserialization:</h3>
+        <p>During deserialization, we will reconstruct the binary tree from the serialized string. We maintain a pointer to the current index of the string. If the current substring represents a null node, we move the index forward and return null. Otherwise, we extract the integer value from the substring and create a new tree node. Then, we recursively deserialize the left and right subtrees, linking them to the current node. Finally, we return the root node of the reconstructed binary tree.</p>
+
+        <h2>Demonstration</h2>
+        <p>Let's demonstrate the serialization and deserialization process using an example:</p>
+        
+        <h3>Example:</h3>
+        <p>Consider the following binary tree:</p>
+        
+        <pre>
+                1
+               / \
+              2   3
+                 / \
+                4   5
+        </pre>
+        
+        <p>After serialization, the binary tree can be represented as the following string:</p>
+        
+        <pre>
+        "1 2 null null 3 4 null null 5 null null"
+        </pre>
+        
+        <p>By deserializing the string, we can reconstruct the original binary tree.</p>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2023 My GitHub Page. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

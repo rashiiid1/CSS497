@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution - Serialize and Deserialize Binary Tree</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Solution - Serialize and Deserialize Binary Tree</h1>
+    </header>
+
+    <main>
+        <h2>Problem Solution</h2>
+        <p>Here is a possible solution for the problem of serializing and deserializing a binary tree using Depth-First Search (DFS) algorithm:</p>
+
+        <pre>
+class Codec {
+public:
+    // Encodes a tree to a single string.
+    string serialize(TreeNode* root) {
+        string serialized;
+        serializeHelper(root, serialized);
+        return serialized;
+    }
+    
+    // Decodes your encoded data to tree.
+    TreeNode* deserialize(string data) {
+        int idx = 0;
+        return deserializeHelper(data, idx);
+    }
+    
+private:
+    void serializeHelper(TreeNode* node, string& serialized) {
+        if (node == nullptr) {
+            serialized += "null ";
+            return;
+        }
+        
+        serialized += to_string(node->val) + " ";
+        serializeHelper(node->left, serialized);
+        serializeHelper(node->right, serialized);
+    }
+    
+    TreeNode* deserializeHelper(const string& data, int& idx) {
+        if (idx >= data.size() || data.substr(idx, 4) == "null") {
+            idx += 5;
+            return nullptr;
+        }
+        
+        int numEnd = data.find(' ', idx);
+        int val = stoi(data.substr(idx, numEnd - idx));
+        idx = numEnd + 1;
+        
+        TreeNode* node = new TreeNode(val);
+        node->left = deserializeHelper(data, idx);
+        node->right = deserializeHelper(data, idx);
+        
+        return node;
+    }
+};
+        </pre>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 My GitHub Page. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
